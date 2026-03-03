@@ -2,7 +2,6 @@ package Module_4;
 
 abstract class Shape {
 
-    // Abstract Method
     abstract double area();
 }
 
