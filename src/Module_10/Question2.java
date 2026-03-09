@@ -1,0 +1,48 @@
+package Module_10;
+
+    class ListNodee {
+        int val;
+        ListNode next;
+
+        ListNodee(int val) {
+            this.val = val;
+            this.next = null;
+        }
+    }
+
+public class Question2 {
+
+        public static boolean hasCycle(ListNode head) {
+
+            ListNode slow = head;
+            ListNode fast = head;
+
+            while (fast != null && fast.next != null) {
+
+                slow = slow.next;          // move 1 step
+                fast = fast.next.next;     // move 2 steps
+
+                if (slow == fast) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public static void main(String[] args) {
+
+            ListNode head = new ListNode(3);
+            head.next = new ListNode(2);
+            head.next.next = new ListNode(0);
+            head.next.next.next = new ListNode(-4);
+
+            // creating cycle
+            head.next.next.next.next = head.next;
+
+            boolean result = hasCycle(head);
+
+            System.out.println(result);
+        }
+
+}
